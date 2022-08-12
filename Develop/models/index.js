@@ -11,8 +11,8 @@ Product.belongsTo(Category, {
   through: {
     model: Category,
     unique: false
-  },
-  as: 'sorted_products'
+  }
+  //as: 'sorted_products'
 });
 
 // Categories have many Products
@@ -26,8 +26,8 @@ Product.belongsToMany(Tag, {
   through: {
     model: ProductTag,
     unique: false
-  },
-  as: 'numbered_products'
+  }
+  //as: 'numbered_products'
 })
 
 // Tags belongToMany Products (through ProductTag)
@@ -37,7 +37,7 @@ Tag.belongsToMany(Product,{
     model: ProductTag,
     unique: true
   },
-  as: 'tagged_product'
+  // as: 'tagged_product'
 }) 
 
 module.exports = {

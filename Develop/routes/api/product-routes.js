@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { response } = require('express');
 const { Product, Category, Tag, ProductTag } = require('../../models');
 
 // The `/api/products` endpoint
@@ -7,8 +8,9 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 // be sure to include its associated Category and Tag data
 router.get('/', (req, res) => {
   // find all products
-  Product.findAll({include:[Category]}).then(data => {
-    res.json(data)})
+  Product.findAll({include:[Category, {model: Tag, through: ProductTag}]}).then(data => {
+    res.json(data)}).catch(err => {console.log(err)
+    res.sendStatus(500)});
 });
  
 
@@ -17,7 +19,7 @@ router.get('/:id', (req, res) => {
   // find a single product by its `id`
   // be sure to include its associated Category and Tag data
   Product.findByPk(req.params.id, {
-    include: [Category]
+    include: [Category, {model: Tag, through: ProductTag}]
   }).then(data => res.json(data))
 });
 
@@ -95,8 +97,19 @@ router.put('/:id', (req, res) => {
     });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:product_id', (req, res) => {
   // delete one product by its `id` value
+  // DELETE FROM TABLE WHERE ID=
+  Product.destroy({
+    where: {
+      id: req.params.product_id,
+    }
+  }).then(data => {
+    res.json(data)
+  }).catch(err => {
+    console.log(err);
+    res.sendStatus(500)
+  })
 });
 
 module.exports = router;
