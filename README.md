@@ -28,7 +28,7 @@ THEN I am able to successfully create, update, and delete data in my database
 
 Get all/id routes for Categories, Products & Tags.
 
-https://user-images.githubusercontent.com/105801681/184508434-f0cdcfa6-146b-4edd-8292-12f195f70004.mp4
+https://user-images.githubusercontent.com/105801681/184508646-07ca42ed-2120-4fd0-b6e6-1993be95be71.mp4
 
 Post/Put routes for Categories, Products & Tags.
 
