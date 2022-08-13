@@ -26,6 +26,10 @@ THEN I am able to successfully create, update, and delete data in my database
 
 ## Demo
 
+Creating schema, Seeding data & Starting server.
+
+https://user-images.githubusercontent.com/105801681/184509204-2767dd97-74d2-47bb-90b4-7c8ce9c20f0a.mp4
+
 Get all/id routes for Categories, Products & Tags.
 
 https://user-images.githubusercontent.com/105801681/184508646-07ca42ed-2120-4fd0-b6e6-1993be95be71.mp4
